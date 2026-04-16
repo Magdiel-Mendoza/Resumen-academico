@@ -100,7 +100,19 @@
   --hdr:#5B4A8A;--ok-c:#2a6030;--bad-c:#8b2020;
   --G:#2a6030;--Gl:#e8f8e8;--Gd:#1a4020;--B:#3d3060;--Bl:#F0EDF8;--Bd:#1e1830;
   --A:#7a4500;--Al:#faebd7;--Am:#c07020;--R:#8b2020;--Rl:#fde8e8;--Rm:#cc3333;
+}[data-theme=gray]{
+  --T:#555555;--Td:#333333;--Tl:#F0F0F0;--Tm:#888888;
+  --bg:#F4F4F4;--surf:#FFFFFF;--surf2:#EBEBEB;--brd:#CCCCCC;--brd2:#AAAAAA;
+  --tx:#1a1a1a;--tx2:#3a3a3a;--tx3:#777777;--inp:#FFFFFF;
+  --tab-bg:#E0E0E0;--tab-act:#555555;--tab-atx:#fff;
+  --re:#EEEEEE;--rh:#DDDDDD;--ov:rgba(0,0,0,.35);
+  --ph:#E0E0E0;--phc:#333333;--pm:#D8D8D8;--pmc:#222222;--pl:#EBEBEB;--plc:#333333;
+  --hdr:#555555;--ok-c:#1a4a1a;--bad-c:#6a0000;
+  --G:#1a4a1a;--Gl:#E8E8E8;--Gd:#0a2a0a;--B:#1A3060;--Bl:#E0E0F0;--Bd:#0a1830;
+  --A:#4a3a00;--Al:#F0ECD8;--Am:#888844;--R:#6a0000;--Rl:#F0E0E0;--Rm:#993333;
+  --fn:system-ui,'Segoe UI',sans-serif;--r:8px;--rl:12px;
 }
+
 html{font-size:15px}
 body{font-family:var(--fn);color:var(--tx);background:var(--bg);min-height:100vh;transition:background .2s,color .2s}
 body.fs-sm{font-size:13px}body.fs-md{font-size:15px}body.fs-lg{font-size:17px}body.fs-xl{font-size:19px}
@@ -174,19 +186,19 @@ body.fw-bold .ok, body.fw-bold .bad, body.fw-bold .auto-n{font-weight:900!import
 table{width:100%;border-collapse:collapse;font-size:11.5px}
 thead tr{background:var(--T)}
 [data-theme=dark] thead tr{background:var(--Td)}
-th{padding:7px 5px;text-align:center;font-weight:500;color:#fff;white-space:nowrap;font-size:9.5px;position:sticky;top:0;z-index:2;background:var(--T)}
+th{padding:7px 5px;text-align:center;font-weight:500;color:#fff;white-space:nowrap;font-size:0.65rem;position:sticky;top:0;z-index:2;background:var(--T)}
 [data-theme=dark] th{background:var(--Td)}
 th.tl{text-align:left}
-tbody tr:nth-child(even){background:var(--re)}
+tbody tr:nth-child(even):not(.tr-apl):not(.tr-apr):not(.tr-pct){background:var(--re)}
 tbody tr.hl-row{background:#fffde7!important}
 [data-theme=dark] tbody tr.hl-row{background:#2a2a08!important}
 tbody tr:hover{background:var(--rh)}
-td{padding:3px 3px;text-align:center;border-bottom:.5px solid var(--brd);vertical-align:middle;color:var(--tx)}
+td{padding:3px 3px;text-align:center;border-bottom:.5px solid var(--brd);vertical-align:middle;color:var(--tx);font-size:0.8rem}
 td.tl{text-align:left}
-.ni{padding:2px 3px;text-align:center;font-size:11px;border:1px solid transparent;border-radius:4px;background:transparent;font-family:var(--fn);color:var(--tx);width:38px;transition:border-color .1s,background .1s}
+.ni{padding:2px 3px;text-align:center;font-size:0.78rem;border:1px solid transparent;border-radius:4px;background:transparent;font-family:var(--fn);color:var(--tx);width:38px;transition:border-color .1s,background .1s}
 .ni:hover{border-color:var(--brd2);background:var(--surf2)}
 .ni:focus{border-color:var(--T);background:var(--inp);outline:none;box-shadow:0 0 0 2px rgba(29,158,117,.18)}
-.nin{width:140px;text-align:left}
+.nin{width:140px;max-width:40vw;text-align:left}
 .nim{width:130px}
 .nc-v{color:var(--tx3);font-style:italic;font-size:10px}
 .iv{color:var(--Rm);font-weight:700}
@@ -202,8 +214,8 @@ td.tl{text-align:left}
 .be{background:var(--Bl);color:var(--Bd);font-size:9px;padding:2px 7px;border-radius:10px;white-space:nowrap;font-weight:500}
 .bc{background:var(--Gl);color:var(--Gd);font-size:9px;padding:2px 7px;border-radius:10px;white-space:nowrap;font-weight:500}
 [data-theme=dark] .bi{background:#2a1f08;color:#FAC775}[data-theme=dark] .be{background:#0d1a30;color:#85B7EB}[data-theme=dark] .bc{background:#0d1f0a;color:#97C459}
-.tr-apl td{background:#A32D2D!important;color:#fff!important;font-weight:500;font-size:9.5px}
-.tr-apr td{background:#3B6D11!important;color:#fff!important;font-weight:500;font-size:9.5px}
+.tr-apl td{background:#555!important;color:#fff!important;font-weight:600;font-size:0.75rem}
+.tr-apr td{background:#333!important;color:#fff!important;font-weight:600;font-size:0.75rem}
 .tr-pct td{background:var(--surf2);font-size:9px;color:var(--tx2)}
 .pbar{height:5px;border-radius:3px;background:var(--brd);overflow:hidden;margin-top:2px}
 .pfill{height:100%;border-radius:3px;background:var(--Rm)}
@@ -232,7 +244,7 @@ td.tl{text-align:left}
   .biv{color:#000!important;font-style:italic!important;font-weight:700!important}
   .brv,.bfv,.bfl,.brl{color:#000!important}
   .bfase{border-color:#888!important}
-  table tr:nth-child(even){background:#f0f0f0!important}
+  table tr:nth-child(even):not(.tr-apl):not(.tr-apr):not(.tr-pct):not(.ar):not(.ag2){background:#f0f0f0!important}
   .sec-tbl td,.bol-tbl td{font-size:9px!important;color:#000!important}
 }
 .dbtn{background:none;border:none;color:#fca5a5;cursor:pointer;font-size:15px;padding:0 4px;line-height:1;transition:color .1s}
@@ -532,10 +544,7 @@ function loadFontPrefs(){
 }
 
 // ===== THEME =====
-/* toggleTheme replaced by nextTheme via carrusel */
-function loadTheme(){
-  if(localStorage.getItem('pal_theme')==='dark'){dark=true;document.documentElement.setAttribute('data-theme','dark');document.getElementById('tbtnEl').textContent='☀ Claro';}
-}
+/* loadTheme is defined in TEMAS CARRUSEL section below */
 
 // ===== SORT / SEARCH =====
 function sortedRows(key){
@@ -1206,8 +1215,8 @@ if('serviceWorker' in navigator){
 
 
 // ===== TEMAS CARRUSEL =====
-const THEMES=['','dark','blue','red','orange','cream','brown','lavender'];
-const THEME_NAMES=['🌿 Verde','🌙 Oscuro','🔵 Azul','🔴 Rojo','🟠 Naranja','🟡 Crema','🟤 Marrón','💜 Lavanda'];
+const THEMES=['','dark','blue','red','orange','cream','brown','lavender','gray'];
+const THEME_NAMES=['🌿 Verde','🌙 Oscuro','🔵 Azul','🔴 Rojo','🟠 Naranja','🟡 Crema','🟤 Marrón','💜 Lavanda','⚫ Gris'];
 let themeIdx=0;
 function nextTheme(){
   themeIdx=(themeIdx+1)%THEMES.length;
@@ -1230,24 +1239,38 @@ function niEnter(e,key,ri,type,col){
   if(e.key!=='Enter'&&e.key!=='Tab')return;
   e.preventDefault();
   const rows=data[key];
+  const totalRows=rows.length;
+  // Helper: focus a name input in a given row
+  function focusName(rowIdx){
+    const tr=document.getElementById('row-'+key+'-'+rowIdx);
+    if(tr){const nin=tr.querySelector('.nin');if(nin){nin.focus();nin.select();return true;}}
+    return false;
+  }
+  // Helper: focus a note cell in a given row+col
+  function focusNote(rowIdx,colIdx){
+    const tr=document.getElementById('row-'+key+'-'+rowIdx);
+    if(tr){const cells=tr.querySelectorAll('.ni-cell');if(cells[colIdx]){const cur=document.querySelector('.ni-cell.editing');if(cur)cur.classList.remove('editing');focusNi(cells[colIdx]);return true;}}
+    return false;
+  }
   if(type==='name'){
-    // move to first nota cell of same row
-    const tr=document.getElementById('row-'+key+'-'+ri);
-    if(tr){const nc=tr.querySelector('.ni-cell');if(nc){blurNi(tr.querySelector('.nin'));focusNi(nc);return;}}
-  } else {
-    // nota: move to same column next row
-    const nextRi=ri+1;
-    if(nextRi<rows.length){
-      const ntr=document.getElementById('row-'+key+'-'+nextRi);
-      if(ntr){
-        const cells=ntr.querySelectorAll('.ni-cell');
-        if(cells[col]){const cur=e.target.closest('.ni-cell');if(cur)cur.classList.remove('editing');focusNi(cells[col]);return;}
-      }
+    if(e.key==='Enter'){
+      // Enter on name → go to next row name (down)
+      const nextRi=(ri+1)<totalRows?ri+1:ri;
+      focusName(nextRi);
+    } else {
+      // Tab on name → go to first note of same row (right)
+      focusNote(ri,0);
     }
-    // last row: move to next col row 0 or add row
-    if(nextRi>=rows.length&&col<mats.length-1){
-      const tr0=document.getElementById('row-'+key+'-0');
-      if(tr0){const cells=tr0.querySelectorAll('.ni-cell');if(cells[col+1]){const cur=e.target.closest('.ni-cell');if(cur)cur.classList.remove('editing');focusNi(cells[col+1]);return;}}
+  } else {
+    if(e.key==='Enter'){
+      // Enter on note → same column, next row (down)
+      if(ri+1<totalRows){focusNote(ri+1,col);}
+      else{focusNote(0,col);} // wrap to top same column
+    } else {
+      // Tab on note → next column same row (right), or next row col 0
+      if(col+1<mats.length){focusNote(ri,col+1);}
+      else if(ri+1<totalRows){focusName(ri+1);}
+      else{focusName(0);}
     }
   }
 }
@@ -1255,24 +1278,24 @@ function niEnterMat(e,ri,lapso){
   if(e.key!=='Enter'&&e.key!=='Tab')return;
   e.preventDefault();
   const rows=secciones[secActiva].rows;
-  const lapsos=['l1','l2','l3'];
-  const lapsoIdx=lapsos.indexOf(lapso);
+  const totalRows=rows.length;
+  const lapsoOrder=['l1','l2','l3'];
+  const lapsoIdx=lapsoOrder.indexOf(lapso);
+  const tbl=document.getElementById('mat-table');
+  if(!tbl)return;
+  const tbodyRows=tbl.querySelectorAll('tbody tr');
+  function fName(rowIdx){const inp=tbodyRows[rowIdx]?.querySelector('.nin');if(inp){inp.focus();inp.select();}}
+  function fNote(rowIdx,li){const cells=tbodyRows[rowIdx]?.querySelectorAll('.ni-cell');if(cells&&cells[li]){const cur=document.querySelector('.ni-cell.editing');if(cur)cur.classList.remove('editing');focusNi(cells[li]);}}
   if(lapso==='name'){
-    // move to l1 of same row
-    const tbl=document.getElementById('mat-table');
-    if(tbl){const cells=tbl.querySelectorAll('tbody tr')[ri]?.querySelectorAll('.ni-cell');if(cells&&cells[0]){focusNi(cells[0]);return;}}
+    if(e.key==='Enter'){fName(ri+1<totalRows?ri+1:ri);}
+    else{fNote(ri,0);}
   } else {
-    const nextRi=ri+1;
-    const tbl=document.getElementById('mat-table');
-    if(!tbl)return;
-    const tbodyRows=tbl.querySelectorAll('tbody tr');
-    if(nextRi<tbodyRows.length){
-      const cells=tbodyRows[nextRi].querySelectorAll('.ni-cell');
-      if(cells[lapsoIdx]){const cur=e.target.closest('.ni-cell');if(cur)cur.classList.remove('editing');focusNi(cells[lapsoIdx]);return;}
-    }
-    if(nextRi>=rows.length&&lapsoIdx<lapsos.length-1){
-      const cells=tbodyRows[0]?.querySelectorAll('.ni-cell');
-      if(cells&&cells[lapsoIdx+1]){const cur=e.target.closest('.ni-cell');if(cur)cur.classList.remove('editing');focusNi(cells[lapsoIdx+1]);return;}
+    if(e.key==='Enter'){
+      if(ri+1<totalRows)fNote(ri+1,lapsoIdx);else fNote(0,lapsoIdx);
+    } else {
+      if(lapsoIdx+1<lapsoOrder.length)fNote(ri,lapsoIdx+1);
+      else if(ri+1<totalRows)fName(ri+1);
+      else fName(0);
     }
   }
 }
