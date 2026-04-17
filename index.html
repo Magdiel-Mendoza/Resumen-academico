@@ -214,8 +214,8 @@ td.tl{text-align:left}
 .be{background:var(--Bl);color:var(--Bd);font-size:9px;padding:2px 7px;border-radius:10px;white-space:nowrap;font-weight:500}
 .bc{background:var(--Gl);color:var(--Gd);font-size:9px;padding:2px 7px;border-radius:10px;white-space:nowrap;font-weight:500}
 [data-theme=dark] .bi{background:#2a1f08;color:#FAC775}[data-theme=dark] .be{background:#0d1a30;color:#85B7EB}[data-theme=dark] .bc{background:#0d1f0a;color:#97C459}
-.tr-apl td{background:#555!important;color:#fff!important;font-weight:600;font-size:0.75rem}
-.tr-apr td{background:#333!important;color:#fff!important;font-weight:600;font-size:0.75rem}
+.tr-apl td{background:var(--Tl)!important;color:var(--Td)!important;font-weight:700;font-size:0.75rem;border-bottom:.5px solid var(--brd2)!important}
+.tr-apr td{background:var(--Tm)!important;color:#fff!important;font-weight:700;font-size:0.75rem}
 .tr-pct td{background:var(--surf2);font-size:9px;color:var(--tx2)}
 .pbar{height:5px;border-radius:3px;background:var(--brd);overflow:hidden;margin-top:2px}
 .pfill{height:100%;border-radius:3px;background:var(--Rm)}
@@ -244,7 +244,7 @@ td.tl{text-align:left}
   .biv{color:#000!important;font-style:italic!important;font-weight:700!important}
   .brv,.bfv,.bfl,.brl{color:#000!important}
   .bfase{border-color:#888!important}
-  table tr:nth-child(even):not(.tr-apl):not(.tr-apr):not(.tr-pct):not(.ar):not(.ag2){background:#f0f0f0!important}
+  tbody tr:nth-child(even):not(.tr-apl):not(.tr-apr):not(.tr-pct):not(.ar):not(.ag2){background:#f0f0f0!important}
   .sec-tbl td,.bol-tbl td{font-size:9px!important;color:#000!important}
 }
 .dbtn{background:none;border:none;color:#fca5a5;cursor:pointer;font-size:15px;padding:0 4px;line-height:1;transition:color .1s}
@@ -307,22 +307,22 @@ td.tl{text-align:left}
 /* Venezuelan header - uniform B&W print */
 .ven-hdr{text-align:center;padding:8px 10px 7px;border-bottom:2px solid #000;border-top:2px solid #000;margin-bottom:0}
 .ven-rep{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:#000}
-.ven-min{font-size:10px;font-weight:400;color:#000;margin-top:2px}
+.ven-min{font-size:10px;font-weight:700;color:#000;margin-top:2px}
 .ven-inst{font-size:10px;font-weight:700;color:#000;margin-top:3px;text-transform:uppercase}
-.ven-loc{font-size:10px;font-weight:400;color:#000;margin-top:1px}
+.ven-loc{font-size:10px;font-weight:700;color:#000;margin-top:1px}
 .ven-doc-title{font-size:10px;font-weight:700;color:#000;margin-top:4px;border-top:1px solid #ccc;padding-top:4px;text-transform:uppercase;letter-spacing:.03em}
 
 /* Section print - B&W */
 .sec-meta{display:flex;gap:14px;flex-wrap:wrap;padding:5px 10px;background:#f5f5f5;border-bottom:1px solid #999;font-size:9px;color:#000}
 .sec-meta b{color:#000;font-weight:700}
 .sec-tbl{width:100%;border-collapse:collapse}
-.sec-tbl th{background:#333;color:#fff;padding:5px 4px;font-size:8px;font-weight:700;white-space:nowrap;text-align:center}
+.sec-tbl th{background:#333;color:#fff;padding:4px 3px;font-size:7.5px;font-weight:700;white-space:normal;text-align:center;word-break:break-word;max-width:60px}
 .sec-tbl th.tl{text-align:left}
-.sec-tbl td{padding:3px 3px;border-bottom:.5px solid #ccc;text-align:center;color:#000;font-size:9px}
-.sec-tbl td.tl{text-align:left;white-space:nowrap;color:#000}
-.sec-tbl tr:nth-child(even){background:#f0f0f0}
-.sec-tbl .ar td{background:#555!important;color:#fff!important;font-weight:700;font-size:9px}
-.sec-tbl .ag2 td{background:#222!important;color:#fff!important;font-weight:700;font-size:9px}
+.sec-tbl td{padding:2px 2px;border-bottom:.5px solid #ccc;text-align:center;color:#000;font-size:8.5px}
+.sec-tbl td.tl{text-align:left;white-space:nowrap;color:#000;font-size:8.5px;max-width:120px;overflow:hidden;text-overflow:ellipsis}
+.sec-tbl tr:nth-child(even):not(.ar):not(.ag2){background:#f0f0f0}
+.sec-tbl .ar td{background:#e8e8e8!important;color:#000!important;font-weight:700;font-size:8.5px;border-top:1.5px solid #999!important}
+.sec-tbl .ag2 td{background:#d0d0d0!important;color:#000!important;font-weight:700;font-size:8.5px;border-top:.5px solid #bbb!important}
 .sec-foot{padding:4px 10px;font-size:8px;color:#333;background:#f0f0f0;border-top:1px solid #999;display:flex;gap:12px}
 .sec-fir{display:flex;justify-content:space-around;margin-top:22px;padding:0 14px;font-size:9px;color:#333}
 .sec-fir div{text-align:center;border-top:1px solid #888;padding-top:4px;width:140px}
@@ -338,7 +338,7 @@ td.tl{text-align:left}
 .bol-tbl th.r{text-align:center}
 .bol-tbl td{padding:3px 8px;border-bottom:.5px solid #ccc;color:#000;font-size:9px}
 .bol-tbl td.r{text-align:center}
-.bol-tbl tr:nth-child(even){background:#f0f0f0}
+.bol-tbl tr:nth-child(even):not(.ar):not(.ag2){background:#f0f0f0}
 .bok{color:#000;font-weight:700}.bbd{color:#000;font-weight:700;text-decoration:underline}.bnc{color:#555;font-style:italic}.biv{color:#000;font-weight:700;font-style:italic}
 .bol-foot{display:flex;justify-content:space-between;align-items:flex-end;padding:7px 12px;background:#f5f5f5;border:1px solid #ccc;border-top:none}
 .bol-res{display:flex;gap:14px}
@@ -359,6 +359,7 @@ td.tl{text-align:left}
     <div><div class="hi" id="d-inst">UEN LB Dr. Siso Martínez</div><div class="hs" id="d-lugar">Barquisimeto, Estado Lara</div></div>
     <div class="hdr-r">
       <div class="hbadge" id="d-badge">4to "B" · 2012–2013</div>
+      <div class="hbadge" style="background:rgba(255,255,255,.1);font-size:10px;opacity:.8">v8.0</div>
       <div style="display:flex;gap:3px;align-items:center">
         <button class="tbtn" onclick="setFS('sm')" title="Fuente pequeña" style="padding:3px 7px">A-</button>
         <button class="tbtn" onclick="setFS('lg')" title="Fuente grande" style="padding:3px 7px">A+</button>
@@ -619,6 +620,7 @@ function renderLapso(key){
     <button class="btn bg" onclick="printSec('${key}')">🖨 Imprimir sección</button>
     <span class="sp"></span>
     <button class="btn bs" onclick="openDat()">💾 Datos</button>
+    <button class="btn br" onclick="limpiarPeriodo()" title="Borra todas las notas para comenzar un nuevo período escolar">🗑 Limpiar período</button>
   </div>
   <div class="sbar">
     <input id="${sid}" placeholder="Buscar estudiante…" oninput="filterRows('${key}',this.value)" inputmode="text">
@@ -632,7 +634,7 @@ function renderLapso(key){
     <thead><tr><th>#</th><th class="tl" style="min-width:138px">Apellidos y nombres</th>${thC}<th style="color:#a8f0d4">Apr.</th><th style="color:#fca5a5">Apl.</th><th>Prom.</th><th style="min-width:82px">Fase</th><th></th></tr></thead>
     <tbody>${tbody}${ar}${ag}${pt}</tbody>
   </table></div>
-  <div class="nb">NC = No Cursa (aprobada) &nbsp;·&nbsp; i = Inasistencia (aplazada) &nbsp;·&nbsp; Notas 0–20 &nbsp;·&nbsp; Aprobado ≥ 10 &nbsp;·&nbsp; Notas &lt;10 se muestran como 01, 02…09</div>`;
+  <div class="nb">NC = No Cursa (aprobada) &nbsp;·&nbsp; i = Inasistencia (aplazada) &nbsp;·&nbsp; — = Sin docente asignado &nbsp;·&nbsp; Escala 01–20 &nbsp;·&nbsp; Aprobado ≥ 10</div>`;
 }
 
 // ===== RENDER NOTA FINAL (read-only display) =====
@@ -682,6 +684,7 @@ function renderFinal(){
     <span class="sp"></span>
     <span class="hint">Las notas en <em style="color:var(--B)">azul</em> se calculan automáticamente (promedio redondeado de los 3 lapsos)</span>
     <button class="btn bs" onclick="openDat()">💾 Datos</button>
+    <button class="btn br" onclick="limpiarPeriodo()" title="Borra todas las notas para comenzar un nuevo período escolar">🗑 Limpiar período</button>
   </div>
   <div class="sbar">
     <input placeholder="Buscar estudiante…" oninput="filterRowsTF(this.value)" inputmode="text">
@@ -695,7 +698,7 @@ function renderFinal(){
     <thead><tr><th>#</th><th class="tl" style="min-width:150px">Apellidos y nombres</th>${thC}<th style="color:#a8f0d4">Apr.</th><th style="color:#fca5a5">Apl.</th><th>Prom.</th><th style="min-width:82px">Fase</th></tr></thead>
     <tbody>${tbody}${ar}${ag}</tbody>
   </table></div>
-  <div class="nb">Nota final = promedio redondeado de los 3 lapsos por asignatura &nbsp;·&nbsp; Notas en azul itálico son calculadas automáticamente</div>`;
+  <div class="nb">Nota final = promedio redondeado de los 3 lapsos &nbsp;·&nbsp; — = Sin docente asignado &nbsp;·&nbsp; Escala 01–20</div>`;
 }
 
 function filterRows(key,q){
@@ -1125,7 +1128,7 @@ function buildSec(key){
       cells+=`<td class="${noteCls(v)}">${dispPrint(v)}</td>`;
     }
     const pC=prom>=14?'color:#3B6D11;font-weight:700':prom>=10?'color:#185FA5':' color:#A32D2D;font-weight:700';
-    const fS=fase==='Consolidado'?'Con.':fase==='En Proceso'?'E.P.':'Ini.';
+    const fS=fase==='Consolidado'?'Cons.':fase==='En Proceso'?'E.P.':'Inic.';
     tbody+=`<tr><td class="tl">${ri+1}. ${r.nom}</td>${cells}<td class="bok" style="font-weight:700">${apr}</td><td class="bbd">${apl}</td><td style="${pC}">${prom.toFixed(1)}</td><td style="font-size:7.5px;color:#333">${fS}</td></tr>`;
   });
   let ar='<tr class="ar"><td colspan="2" class="tl">Aplazados</td>';aplM.forEach(x=>ar+=`<td>${x}</td>`);ar+=`<td colspan="4"></td></tr>`;
@@ -1133,7 +1136,7 @@ function buildSec(key){
   const allR=data.t1.map((_,ri)=>calcRow(isTF?getFinalNs(ri):data[key][ri].ns));
   const avg=allR.length?allR.reduce((s,r)=>s+r.prom,0)/allR.length:0;
   const nAll=allR.filter(r=>r.apl===0).length;
-  const thC=mats.map(m=>`<th title="${m}">${m.substring(0,5)}</th>`).join('');
+  const thC=mats.map(m=>`<th title="${m}" style="writing-mode:vertical-lr;transform:rotate(180deg);height:70px;padding:3px 2px;font-size:7px;white-space:nowrap">${m}</th>`).join('');
   return`<div class="pdoc bp">
     ${venHdr('Resumen Estadístico — '+lT(key))}
     <div class="sec-meta">
@@ -1141,9 +1144,9 @@ function buildSec(key){
       <span>Docente guía: <b>${i.doc}</b></span><span>Alumnos: <b>${data[key].length}</b></span>
       <span>Prom. grupo: <b>${avg.toFixed(2)}</b></span><span>Todos aprobados: <b>${nAll}</b></span>
     </div>
-    <table class="sec-tbl"><thead><tr><th class="tl" style="min-width:110px">Apellidos y nombres</th>${thC}<th>Apr.</th><th>Apl.</th><th>Prom.</th><th>Fase</th></tr></thead>
+    <table class="sec-tbl"><thead><tr><th class="tl" style="min-width:90px;max-width:120px">Apellidos y nombres</th>${thC}<th>Apr.</th><th>Apl.</th><th>Prom.</th><th>Fase</th></tr></thead>
     <tbody>${tbody}${ar}${ag}</tbody></table>
-    <div class="sec-foot"><span>NC=No Cursa (aprobada)</span><span>i=Inasistencia (aplazada)</span><span>Escala 0–20</span><span>Aprobado ≥10</span></div>
+    <div class="sec-foot"><span>NC=No Cursa (aprobada)</span><span>i=Inasistencia (aplazada)</span><span>—=Sin docente asignado</span><span>Escala 01–20</span><span>Aprobado ≥10</span></div>
     <div class="sec-fir"><div>Docente guía: ${i.doc}</div><div>Director(a)</div><div>Fecha: ___________</div></div>
   </div>`;
 }
@@ -1298,6 +1301,17 @@ function niEnterMat(e,ri,lapso){
       else fName(0);
     }
   }
+}
+
+// ===== LIMPIAR PERÍODO =====
+function limpiarPeriodo(){
+  if(!confirm('¿Limpiar TODAS las notas de todos los lapsos para comenzar un nuevo período?\n\nLos nombres de estudiantes y asignaturas se conservan. Esta acción no se puede deshacer.'))return;
+  const nm=mats.length;
+  ['t1','t2','t3','tf'].forEach(k=>{
+    data[k].forEach(r=>{r.ns=new Array(nm).fill(null);});
+  });
+  refreshAll();
+  showToast('✓ Notas borradas. Nombres y asignaturas conservados.');
 }
 
 // ===== INIT =====
