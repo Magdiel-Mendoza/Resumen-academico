@@ -358,7 +358,7 @@ td.tl{text-align:left}
     <div><div class="hi" id="d-inst">Liceo Dr. J. M. Siso Martínez</div><div class="hs" id="d-lugar">Barquisimeto, Estado Lara</div></div>
     <div class="hdr-r">
       <div class="hbadge" id="d-badge">1ero A · 2025-2026</div>
-      <div class="hbadge" style="background:rgba(255,255,255,.1);font-size:10px;opacity:.8">v9.2</div>
+      <div class="hbadge" style="background:rgba(255,255,255,.1);font-size:10px;opacity:.8">v10.0</div>
       <div style="display:flex;gap:3px;align-items:center">
         <button class="tbtn" onclick="setFS('sm')" title="Fuente pequeña" style="padding:3px 7px">A-</button>
         <button class="tbtn" onclick="setFS('lg')" title="Fuente grande" style="padding:3px 7px">A+</button>
@@ -1110,7 +1110,7 @@ function printMiMateria(){
       </tr></thead>
       <tbody>${tbody}</tbody>
     </table>
-    <div class="sec-foot"><span>Notas &lt;10 subrayadas</span><span>Nota final=promedio redondeado</span><span>Aprobado ≥10</span><span>Escala 0–20</span></div>
+    <div class="sec-foot"><span>Notas &lt;10 subrayadas</span><span>Nota final=promedio redondeado</span><span>Aprobado ≥10</span><span>Escala 01–20</span></div>
     <div class="sec-fir"><div>Docente: ${i.doc}</div><div>Director(a)</div><div>Fecha: ___________</div></div>
   </div>`);
 }
@@ -1263,8 +1263,8 @@ function buildSec(key){
     const fS=fase==='Consolidado'?'Cons.':fase==='En Proceso'?'E.P.':'Inic.';
     tbody+=`<tr><td class="tl">${ri+1}. ${r.nom}</td>${cells}<td class="bok" style="font-weight:700">${apr}</td><td class="bbd">${apl}</td><td style="${pC}">${prom.toFixed(1)}</td><td style="font-size:7.5px;color:#333">${fS}</td></tr>`;
   });
-  let ar='<tr class="ar"><td colspan="2" class="tl">Aplazados</td>';aplM.forEach(x=>ar+=`<td>${x}</td>`);ar+=`<td colspan="4"></td></tr>`;
-  let ag='<tr class="ag2"><td colspan="2" class="tl">Aprobados</td>';aprM.forEach(x=>ag+=`<td>${x}</td>`);ag+=`<td colspan="4"></td></tr>`;
+  let ar='<tr class="ar"><td class="tl"><b>Aplazados</b></td>';aplM.forEach(x=>ar+=`<td>${x}</td>`);ar+=`<td colspan="4"></td></tr>`;
+  let ag='<tr class="ag2"><td class="tl"><b>Aprobados</b></td>';aprM.forEach(x=>ag+=`<td>${x}</td>`);ag+=`<td colspan="4"></td></tr>`;
   const allR=data.t1.map((_,ri)=>calcRow(isTF?getFinalNs(ri):data[key][ri].ns));
   const avg=allR.length?allR.reduce((s,r)=>s+r.prom,0)/allR.length:0;
   const nAll=allR.filter(r=>r.apl===0).length;
@@ -1278,7 +1278,7 @@ function buildSec(key){
     </div>
     <table class="sec-tbl"><thead><tr><th class="tl" style="min-width:90px;max-width:120px">Apellidos y nombres</th>${thC}<th>Apr.</th><th>Apl.</th><th>Prom.</th><th>Fase</th></tr></thead>
     <tbody>${tbody}${ar}${ag}</tbody></table>
-    <div class="sec-foot"><span>NC=No Cursa (aprobada)</span><span>i=Inasistencia (aplazada)</span><span>—=Sin docente asignado</span><span>Escala 01–20</span><span>Aprobado ≥10</span></div>
+    <div class="sec-foot"><span>NC=No Cursa (aprobada)</span><span>i=Inasistencia (aplazada)</span><span>—=Sin docente asignado</span><span>Escala 01–20</span><span>Aprobado ≥10</span><span>Fase: Inic.=Iniciado &nbsp; E.P.=En Proceso &nbsp; Cons.=Consolidado</span></div>
     <div class="sec-fir"><div>Docente guía: ${i.doc}</div><div>Director(a)</div><div>Fecha: ___________</div></div>
   </div>`;
 }
@@ -1325,7 +1325,7 @@ function buildBol(idx){
         <div><div class="bfase"><div class="bfl">Fase de aprendizaje</div><div class="bfv" style="color:${fC}">${fase}</div></div></div>
       </div>
       <div class="bol-fir"><div>Firma del docente guía</div><div>Firma del representante</div><div>Sello de la institución</div></div>
-      <div class="bol-pie">NC=No Cursa (aprobada) · i=Inasistencia (aplazada) · Escala 0–20 · Aprobado ≥10${isTF?' · *Nota calculada automáticamente':''}</div>
+      <div class="bol-pie">NC=No Cursa (aprobada) · i=Inasistencia (aplazada) · Escala 01–20 · Aprobado ≥10${isTF?' · *Nota calculada automáticamente':''}</div>
     </div>`;
   });
   return pages;
@@ -1369,7 +1369,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;color:#000;background:#fff;margin:0
 .sec-tbl tbody tr:nth-child(even):not(.ar):not(.ag2){background:#f5f5f5}
 .sec-tbl .ar td{background:#e0e0e0!important;color:#000!important;font-weight:700;border-top:1.5px solid #999}
 .sec-tbl .ag2 td{background:#c8c8c8!important;color:#000!important;font-weight:700}
-.sec-foot{padding:4px 10px;font-size:7.5px;color:#333;background:#f2f2f2;border-top:1px solid #999;display:flex;gap:12px;flex-wrap:wrap}
+.sec-foot{padding:4px 10px;font-size:7px;color:#333;background:#f2f2f2;border-top:1px solid #999;display:flex;gap:8px;flex-wrap:wrap}
 .sec-fir{display:flex;justify-content:space-around;margin-top:22px;padding:0 14px;font-size:9px;color:#333}
 .sec-fir div{text-align:center;border-top:1px solid #888;padding-top:4px;width:140px}
 .bol-nom{background:#ddd;color:#000;padding:5px 12px;font-size:11px;font-weight:700;display:flex;justify-content:space-between}
@@ -1393,22 +1393,17 @@ body{font-family:'Segoe UI',Arial,sans-serif;color:#000;background:#fff;margin:0
 .pdoc{font-family:'Segoe UI',Arial,sans-serif;color:#000;background:#fff;font-size:9px;width:100%}
 </style></head><body>${html}</body></html>`);
   doc.close();
-  // Wait for iframe to load then print
-  iframe.onload=()=>{
-    setTimeout(()=>{
-      iframe.contentWindow.focus();
-      iframe.contentWindow.print();
-      setTimeout(()=>iframe.remove(),1000);
-    },200);
-  };
-  // Fallback if onload doesn't fire (some browsers)
-  setTimeout(()=>{
-    if(document.getElementById('print-iframe')){
-      iframe.contentWindow.focus();
-      iframe.contentWindow.print();
-      setTimeout(()=>iframe.remove(),1000);
-    }
-  },800);
+  // Guard against double print dialog
+  let _printed=false;
+  function _doPrintNow(){
+    if(_printed)return;
+    _printed=true;
+    try{iframe.contentWindow.focus();iframe.contentWindow.print();}catch(e){}
+    setTimeout(()=>{const el=document.getElementById('print-iframe');if(el)el.remove();},1500);
+  }
+  iframe.onload=()=>setTimeout(_doPrintNow,250);
+  // Fallback for browsers that don't fire onload on about:blank writes
+  setTimeout(_doPrintNow,1000);
 }
 
 // ===== PWA SERVICE WORKER =====
