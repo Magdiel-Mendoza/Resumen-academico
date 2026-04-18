@@ -362,10 +362,10 @@ td.tl{text-align:left}
 <!-- HEADER -->
 <div class="hdr">
   <div class="hdr-top">
-    <div><div class="hi" id="d-inst">UEN LB Dr. Siso Martínez</div><div class="hs" id="d-lugar">Barquisimeto, Estado Lara</div></div>
+    <div><div class="hi" id="d-inst">Liceo Dr. J. M. Siso Martínez</div><div class="hs" id="d-lugar">Barquisimeto, Estado Lara</div></div>
     <div class="hdr-r">
-      <div class="hbadge" id="d-badge">4to "B" · 2012–2013</div>
-      <div class="hbadge" style="background:rgba(255,255,255,.1);font-size:10px;opacity:.8">v9.0</div>
+      <div class="hbadge" id="d-badge">1ero A · 2025-2026</div>
+      <div class="hbadge" style="background:rgba(255,255,255,.1);font-size:10px;opacity:.8">v9.1</div>
       <div style="display:flex;gap:3px;align-items:center">
         <button class="tbtn" onclick="setFS('sm')" title="Fuente pequeña" style="padding:3px 7px">A-</button>
         <button class="tbtn" onclick="setFS('lg')" title="Fuente grande" style="padding:3px 7px">A+</button>
@@ -375,11 +375,11 @@ td.tl{text-align:left}
     </div>
   </div>
   <div class="hfs">
-    <div class="hf w2"><span class="hl">Institución</span><input class="hi2" id="f-inst" value="UEN LB Dr. Siso Martínez" oninput="updH()" inputmode="text"></div>
+    <div class="hf w2"><span class="hl">Institución</span><input class="hi2" id="f-inst" value="Liceo Dr. J. M. Siso Martínez" oninput="updH()" inputmode="text"></div>
     <div class="hf w2"><span class="hl">Lugar</span><input class="hi2" id="f-lugar" value="Barquisimeto, Estado Lara" oninput="updH()" inputmode="text"></div>
     <div class="hf w2"><span class="hl">Docente guía</span><input class="hi2" id="f-doc" value="Prof. Magdiel Mendoza" oninput="updH()" inputmode="text"></div>
-    <div class="hf"><span class="hl">Año / Sección</span><input class="hi2" id="f-sec" value='4to "B"' oninput="updH()" inputmode="text"></div>
-    <div class="hf"><span class="hl">Período</span><input class="hi2" id="f-per" value="2012–2013" oninput="updH()" inputmode="text"></div>
+    <div class="hf"><span class="hl">Año / Sección</span><input class="hi2" id="f-sec" value='1ero A' oninput="updH()" inputmode="text"></div>
+    <div class="hf"><span class="hl">Período</span><input class="hi2" id="f-per" value="2025-2026" oninput="updH()" inputmode="text"></div>
   </div>
 </div>
 
@@ -467,16 +467,17 @@ td.tl{text-align:left}
 // ===== DATA =====
 const MDEF=['Castellano','Matemática','Historia de Venezuela','Inglés','Educación Física','Física','Química','Ciencias Biológicas','Dibujo Técnico','Filosofía','Pre-Militar'];
 let mats=[...MDEF];
-const NAMES=['Ojeda, Jeferson','Bastidas, Yoneska','Hernández, Fermis','Balza, Alexandra','Gómez, Yairelyn','Montes, Wilmer','Bastidas, Yohan','Hernández, Yoselin','Martínez, Douglimar','Gallardo, Catherine','Romero, Milagros','Cuicas, Jaiver','Rivero, Jennifer','Prado, Madeline','Calderón, Angy','Hernández, Greidys','Hernández, Andrea','Álvarez, Ivon','Chourio, Yeiber','Peralta, Rammelis','Rodríguez, Oddarys','Hernández, Yuselis','Manzano, Javier','Mendoza, Nelson','Quiñónez, Nailin','Cordero, Yulianny','Daza, María','Rodríguez, Alberd','Linarez, Franyelis','Peraza, Oriana'];
-const T1=[['nc',6,9,'nc',null,'nc','nc',null,2,'nc','nc'],[9,5,10,13,null,10,13,null,5,5,15],[16,7,11,10,null,16,7,null,2,10,20],['i','i',4,'i',null,'i','i',null,'i',5,9],[17,10,7,6,null,15,13,null,15,10,17],['nc',10,10,'nc',null,'nc',6,null,'nc','nc','nc'],[14,5,10,10,null,13,9,null,4,12,17],[18,10,13,12,null,12,13,null,10,17,18],[10,10,9,13,null,15,11,null,11,17,15],['i','i',5,5,null,'i','i',null,'i',4,3],[8,7,12,10,null,15,10,null,'i',11,17],[14,15,13,11,null,16,13,null,11,12,17],[17,16,19,10,null,13,16,null,14,18,20],[11,8,7,10,null,13,11,null,9,17,16],[16,18,14,16,null,17,18,null,18,null,20],[16,18,19,16,null,16,17,null,17,18,18],['i','i',3,3,null,1,'i',null,'i',2,8],[16,3,5,10,null,13,11,null,9,5,16],[11,5,9,5,null,10,6,null,3,13,16],[16,14,14,12,null,16,12,null,16,19,18],[17,10,5,6,null,15,14,null,12,10,19],[18,9,13,12,null,13,13,null,9,17,18],[12,11,11,10,null,13,12,null,7,10,19],[5,9,11,14,null,13,10,null,'i',13,16],[15,14,12,16,null,16,13,null,14,17,17],[15,6,10,10,null,1,11,null,4,10,18],[20,18,20,17,null,20,16,null,14,18,20],[10,10,5,14,null,16,16,null,3,10,18],[17,7,5,7,null,16,10,null,10,10,18],[15,8,11,15,null,15,2,null,12,14,17]];
-const T2=[['nc',5,5,'nc','nc','nc','nc',5,6,'nc','nc'],[10,8,10,9,10,15,8,2,15,13,14],[10,5,9,10,'i',16,4,4,5,13,12],[15,12,16,14,15,18,10,13,12,16,18],[10,15,11,16,17,19,16,7,16,18,18],['nc',3,9,'nc','nc','nc',9,7,'nc','nc','nc'],[11,3,11,8,10,16,8,3,15,8,14],[11,10,15,10,16,16,10,7,15,16,12],[10,12,13,10,13,15,9,5,11,12,14],['i',1,'i','i','i','i','i',5,'i','i','i'],[6,1,'i','i','i','i','i','i',null,'i','i'],[10,10,12,15,12,14,11,7,13,12,17],[14,14,16,20,14,19,13,15,17,18,20],[8,6,15,12,16,18,8,2,14,14,14],[14,19,15,18,17,19,18,11,17,18,20],[14,13,5,18,15,18,13,16,null,15,18],[null,1,'i','i','i','i','i','i',1,'i','i'],[12,14,15,11,15,15,14,11,15,16,15],[5,5,11,5,12,10,1,8,12,13,12],[11,6,7,7,12,7,10,3,10,10,12],[12,11,11,16,3,16,13,18,15,14,19],[10,12,12,15,14,18,14,14,12,16,19],[10,9,15,15,8,7,15,10,12,10,20],[10,10,11,13,7,10,12,11,14,10,14],[13,13,15,15,17,20,17,16,16,19,15],[10,7,15,10,15,14,12,12,16,11,15],[18,14,16,20,17,16,17,17,17,19,20],[10,10,5,8,15,6,11,11,11,10,18],[12,15,15,15,17,15,13,17,15,17,20],[11,7,13,11,10,13,7,11,9,8,16]];
-const T3=[['NC','I',12,'NC','NC','NC','NC',1,'i','NC','NC'],[5,7,10,11,4,7,8,'i',4,12,17],[6,15,13,11,'i',1,5,8,10,11,17],[11,10,14,20,3,16,15,17,11,19,17],[7,16,14,13,8,10,17,11,13,15,17],['NC',10,8,'NC','NC','nc',5,4,'nc','NC','nc'],[6,5,10,12,14,11,8,'i',6,12,18],[12,11,10,10,5,9,10,5,10,14,17],[10,13,16,13,13,15,16,10,7,15,17],[12,15,16,10,15,19,1,7,15,17,15],[10,10,'i',10,'i',20,6,2,'i',5,null],[9,10,15,13,13,14,10,15,9,13,18],[11,18,16,20,18,18,18,14,15,19,19],[9,15,16,10,17,10,15,10,7,14,17],[10,16,16,15,3,11,16,8,17,16,18],[14,18,16,20,15,10,17,18,16,18,18],[null,'i','i',9,'i',1,'i','i','i','i',null],[6,16,'i',10,12,20,'i',3,null,6,16],[5,'i',11,10,16,7,1,9,10,6,13],[3,13,'i',11,'i',8,7,'i','i',8,15],[12,16,16,14,15,18,16,17,14,17,17],[12,11,10,16,6,6,14,7,10,12,17],[9,12,13,12,12,14,11,10,10,12,18],[9,12,11,10,13,12,11,8,1,10,17],[10,13,16,14,16,19,17,12,12,14,17],[10,10,13,15,17,15,10,12,10,10,17],[19,19,16,15,15,20,19,18,17,20,19],[7,4,'i',10,10,6,2,7,10,5,19],[13,17,16,14,15,18,15,17,13,17,17],[6,12,13,11,8,15,12,13,10,16,18]];
+const NAMES=['Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre'];
+// T1 rows
+
+
+
 
 let data={
-  t1:NAMES.map((n,i)=>({nom:n,ns:[...T1[i]]})),
-  t2:NAMES.map((n,i)=>({nom:n,ns:[...T2[i]]})),
-  t3:NAMES.map((n,i)=>({nom:n,ns:[...T3[i]]})),
-  tf:NAMES.map((n,i)=>({nom:n,ns:new Array(MDEF.length).fill(null)}))
+  t1:NAMES.map(n=>({nom:n,ns:new Array(MDEF.length).fill(null)})),
+  t2:NAMES.map(n=>({nom:n,ns:new Array(MDEF.length).fill(null)})),
+  t3:NAMES.map(n=>({nom:n,ns:new Array(MDEF.length).fill(null)})),
+  tf:NAMES.map(n=>({nom:n,ns:new Array(MDEF.length).fill(null)}))
 };
 let activeTab='t1', dark=false, sortOrder='original';
 
@@ -841,8 +842,8 @@ function renameMat(i,v){mats[i]=v;}
 
 // ===== MI MATERIA — múltiples secciones =====
 let secciones=[
-  {id:1, mat:'Matemática', sec:'1er A', period:'2024-2025',
-   rows:NAMES.slice(0,15).map(n=>({nom:n,l1:null,l2:null,l3:null}))}
+  {id:1, mat:'Matemática', sec:'1ero A', period:'2025-2026',
+   rows:NAMES.map(n=>({nom:n,l1:null,l2:null,l3:null}))}
 ];
 let secActiva=0; // índice de sección activa en Mi Materia
 
@@ -1245,12 +1246,23 @@ function printBoletinTodos(){let all='';data.t1.forEach((_,i)=>all+=buildBol(i))
 
 function doPrint(html){
   const pa=document.getElementById('parea');
-  pa.innerHTML=html;pa.style.display='block';
-  document.getElementById('main-app').style.display='none';
-  window.print();
-  pa.style.display='none';
-  document.getElementById('main-app').style.display='block';
-  pa.innerHTML='';
+  const app=document.getElementById('main-app');
+  pa.innerHTML=html;
+  pa.style.display='block';
+  app.style.display='none';
+  // Wait two animation frames so browser fully renders before print dialog
+  requestAnimationFrame(()=>{
+    requestAnimationFrame(()=>{
+      setTimeout(()=>{
+        window.print();
+        setTimeout(()=>{
+          pa.style.display='none';
+          app.style.display='block';
+          pa.innerHTML='';
+        },300);
+      },120);
+    });
+  });
 }
 
 // ===== PWA SERVICE WORKER =====
