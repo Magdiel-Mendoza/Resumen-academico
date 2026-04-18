@@ -214,8 +214,10 @@ td.tl{text-align:left}
 .be{background:var(--Bl);color:var(--Bd);font-size:9px;padding:2px 7px;border-radius:10px;white-space:nowrap;font-weight:500}
 .bc{background:var(--Gl);color:var(--Gd);font-size:9px;padding:2px 7px;border-radius:10px;white-space:nowrap;font-weight:500}
 [data-theme=dark] .bi{background:#2a1f08;color:#FAC775}[data-theme=dark] .be{background:#0d1a30;color:#85B7EB}[data-theme=dark] .bc{background:#0d1f0a;color:#97C459}
-.tr-apl td{background:var(--Tl)!important;color:var(--Td)!important;font-weight:700;font-size:0.75rem;border-bottom:.5px solid var(--brd2)!important}
-.tr-apr td{background:var(--Tm)!important;color:#fff!important;font-weight:700;font-size:0.75rem}
+.tr-apl td{background:var(--Tl)!important;color:var(--Td)!important;font-weight:700;font-size:0.75rem;border-top:1.5px solid var(--brd2)!important;text-align:center!important}
+.tr-apl td.tl{text-align:left!important}
+.tr-apr td{background:var(--Tm)!important;color:#fff!important;font-weight:700;font-size:0.75rem;text-align:center!important}
+.tr-apr td.tl{text-align:left!important}
 .tr-pct td{background:var(--surf2);font-size:9px;color:var(--tx2)}
 .pbar{height:5px;border-radius:3px;background:var(--brd);overflow:hidden;margin-top:2px}
 .pfill{height:100%;border-radius:3px;background:var(--Rm)}
@@ -244,7 +246,11 @@ td.tl{text-align:left}
   .biv{color:#000!important;font-style:italic!important;font-weight:700!important}
   .brv,.bfv,.bfl,.brl{color:#000!important}
   .bfase{border-color:#888!important}
-  tbody tr:nth-child(even):not(.tr-apl):not(.tr-apr):not(.tr-pct):not(.ar):not(.ag2){background:#f0f0f0!important}
+  tbody tr{background:#fff!important;color:#000!important}
+  tbody tr:nth-child(even):not(.tr-apl):not(.tr-apr):not(.tr-pct):not(.ar):not(.ag2){background:#f2f2f2!important}
+  .sec-tbl tbody tr,.bol-tbl tbody tr{background:#fff!important;color:#000!important}
+  .sec-tbl tbody tr:nth-child(even):not(.ar):not(.ag2){background:#f2f2f2!important}
+  .bol-tbl tbody tr:nth-child(even){background:#f2f2f2!important}
   .sec-tbl td,.bol-tbl td{font-size:9px!important;color:#000!important}
 }
 .dbtn{background:none;border:none;color:#fca5a5;cursor:pointer;font-size:15px;padding:0 4px;line-height:1;transition:color .1s}
@@ -359,7 +365,7 @@ td.tl{text-align:left}
     <div><div class="hi" id="d-inst">UEN LB Dr. Siso Martínez</div><div class="hs" id="d-lugar">Barquisimeto, Estado Lara</div></div>
     <div class="hdr-r">
       <div class="hbadge" id="d-badge">4to "B" · 2012–2013</div>
-      <div class="hbadge" style="background:rgba(255,255,255,.1);font-size:10px;opacity:.8">v8.0</div>
+      <div class="hbadge" style="background:rgba(255,255,255,.1);font-size:10px;opacity:.8">v9.0</div>
       <div style="display:flex;gap:3px;align-items:center">
         <button class="tbtn" onclick="setFS('sm')" title="Fuente pequeña" style="padding:3px 7px">A-</button>
         <button class="tbtn" onclick="setFS('lg')" title="Fuente grande" style="padding:3px 7px">A+</button>
@@ -395,6 +401,31 @@ td.tl{text-align:left}
   <div id="tmat" class="panel"></div>
 </div>
 
+
+<!-- Import TXT modal -->
+<div class="ov" id="txt-ov">
+  <div class="mc">
+    <div class="mct"><span>📋 Importar lista de estudiantes (.txt)</span><button class="xbtn" onclick="document.getElementById('txt-ov').classList.remove('open')">✕</button></div>
+    <div class="mcb">
+      <div class="esec">
+        <p style="margin-bottom:8px"><strong>Formato del archivo .txt:</strong><br>Un apellido y nombre por línea. Ejemplo:<br>
+        <code style="background:var(--surf2);padding:4px 8px;border-radius:4px;display:block;margin-top:6px;font-size:11px">Bastidas, Yoneska<br>Daza, María<br>Rivero, Jennifer</code></p>
+        <input type="file" id="txt-file" accept=".txt,.csv" style="font-size:12px;color:var(--tx2);width:100%;margin-bottom:8px" onchange="previewTxt(this)">
+        <div id="txt-preview" style="max-height:200px;overflow-y:auto;font-size:11px;color:var(--tx2);margin-bottom:8px"></div>
+      </div>
+      <div style="display:flex;gap:6px;align-items:center">
+        <label style="font-size:11px;color:var(--tx2)">Destino:</label>
+        <select id="txt-dest" style="font-size:12px;padding:4px 8px;border:1.5px solid var(--brd2);border-radius:var(--r);background:var(--inp);color:var(--tx)">
+          <option value="lapsos">Lapsos (guía de sección)</option>
+          <option value="mimat">Mi Materia (sección activa)</option>
+        </select>
+      </div>
+      <div style="margin-top:10px;display:flex;gap:7px">
+        <button class="btn bg" onclick="applyTxt()" style="flex:1">✓ Importar estudiantes</button>
+        <button class="btn br" onclick="document.getElementById('txt-ov').classList.remove('open')">Cancelar</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- Asignaturas modal -->
@@ -412,14 +443,14 @@ td.tl{text-align:left}
     <div class="mct"><span>Guardar / Cargar datos</span><button class="xbtn" onclick="closeDat()">✕</button></div>
     <div class="mcb">
       <div class="esec">
-        <p><strong>Guardar sección actual</strong> — ponle un nombre y presiona Guardar.</p>
+        <p><strong>Guardar en este dispositivo</strong> — guarda una copia nombrada en la memoria del navegador de este dispositivo. Si borras el caché del navegador se pierde. Para respaldo seguro usa "Exportar JSON".</p>
         <div style="display:flex;gap:6px;margin-bottom:8px">
           <input id="sname" placeholder='Ej: 4to B · 2024-2025' style="flex:1;font-size:12px;padding:5px 9px;border:1.5px solid var(--brd2);border-radius:var(--r);background:var(--inp);color:var(--tx);font-family:var(--fn)" inputmode="text">
           <button class="btn bs" onclick="doSave()">💾 Guardar</button>
         </div>
         <p><strong>Exportar</strong> — descarga un archivo JSON para respaldo o para usar en otro dispositivo.</p>
         <button class="btn bg" style="width:100%;margin-bottom:8px" onclick="exportJ()">⬇ Descargar JSON</button>
-        <p><strong>Importar</strong> — carga un archivo JSON exportado anteriormente.</p>
+        <p><strong>Importar JSON</strong> — carga un archivo .json exportado previamente. Reemplaza TODOS los datos actuales con los del archivo.</p>
         <input type="file" id="imp-file" accept=".json" style="font-size:11px;color:var(--tx2);width:100%" onchange="importJ(this)">
       </div>
       <p style="font-size:12px;font-weight:600;color:var(--tx);margin-bottom:6px">Secciones guardadas:</p>
@@ -621,6 +652,7 @@ function renderLapso(key){
     <span class="sp"></span>
     <button class="btn bs" onclick="openDat()">💾 Datos</button>
     <button class="btn br" onclick="limpiarPeriodo()" title="Borra todas las notas para comenzar un nuevo período escolar">🗑 Limpiar período</button>
+    <button class="btn bb" onclick="document.getElementById('txt-ov').classList.add('open')">📋 Importar lista .txt</button>
   </div>
   <div class="sbar">
     <input id="${sid}" placeholder="Buscar estudiante…" oninput="filterRows('${key}',this.value)" inputmode="text">
@@ -685,6 +717,7 @@ function renderFinal(){
     <span class="hint">Las notas en <em style="color:var(--B)">azul</em> se calculan automáticamente (promedio redondeado de los 3 lapsos)</span>
     <button class="btn bs" onclick="openDat()">💾 Datos</button>
     <button class="btn br" onclick="limpiarPeriodo()" title="Borra todas las notas para comenzar un nuevo período escolar">🗑 Limpiar período</button>
+    <button class="btn bb" onclick="document.getElementById('txt-ov').classList.add('open')">📋 Importar lista .txt</button>
   </div>
   <div class="sbar">
     <input placeholder="Buscar estudiante…" oninput="filterRowsTF(this.value)" inputmode="text">
@@ -757,13 +790,22 @@ function renderAlDetail(idx){
 
 // ===== CELL CLICK-TO-EDIT =====
 function focusNi(td){
+  if(!td)return;
+  // Remove editing from any other cell first
+  document.querySelectorAll('.ni-cell.editing').forEach(c=>{if(c!==td)c.classList.remove('editing');});
   td.classList.add('editing');
   const inp=td.querySelector('.ni-hide');
-  inp.focus();inp.select();
+  if(inp){
+    // Small delay ensures the display:block takes effect before focus
+    requestAnimationFrame(()=>{inp.focus();inp.select();});
+  }
 }
 function blurNi(inp){
-  const td=inp.closest('.ni-cell');
-  if(td)td.classList.remove('editing');
+  // Delay so niEnter can read the value before it's cleared
+  setTimeout(()=>{
+    const td=inp.closest('.ni-cell');
+    if(td&&!td.querySelector('.ni-hide:focus'))td.classList.remove('editing');
+  },80);
 }
 
 // ===== MUTATIONS =====
@@ -974,7 +1016,7 @@ function printMiMateria(){
       <thead><tr>
         <th class="tl" style="min-width:130px">Apellidos y nombres</th>
         <th>1er Lapso</th><th>2do Lapso</th><th>3er Lapso</th>
-        <th style="background:#555">Nota Final</th>
+        <th>Nota Final</th>
       </tr></thead>
       <tbody>${tbody}</tbody>
     </table>
@@ -1136,7 +1178,7 @@ function buildSec(key){
   const allR=data.t1.map((_,ri)=>calcRow(isTF?getFinalNs(ri):data[key][ri].ns));
   const avg=allR.length?allR.reduce((s,r)=>s+r.prom,0)/allR.length:0;
   const nAll=allR.filter(r=>r.apl===0).length;
-  const thC=mats.map(m=>`<th title="${m}" style="writing-mode:vertical-lr;transform:rotate(180deg);height:70px;padding:3px 2px;font-size:7px;white-space:nowrap">${m}</th>`).join('');
+  const thC=mats.map(m=>`<th title="${m}" style="height:80px;padding:0;vertical-align:bottom;text-align:left;min-width:24px;max-width:32px"><div style="writing-mode:vertical-rl;transform:rotate(180deg);font-size:8px;white-space:nowrap;padding:4px 3px;font-weight:700;letter-spacing:0.02em">${m}</div></th>`).join('');
   return`<div class="pdoc bp">
     ${venHdr('Resumen Estadístico — '+lT(key))}
     <div class="sec-meta">
@@ -1241,19 +1283,28 @@ function loadTheme(){
 function niEnter(e,key,ri,type,col){
   if(e.key!=='Enter'&&e.key!=='Tab')return;
   e.preventDefault();
+  // Save current value immediately before navigating
+  if(type==='nota'){
+    const curVal=e.target.value.trim();
+    if(curVal!==String(data[key][ri].ns[col]??'')){
+      setN(key,ri,col,curVal);
+    }
+  }
   const rows=data[key];
   const totalRows=rows.length;
   // Helper: focus a name input in a given row
   function focusName(rowIdx){
-    const tr=document.getElementById('row-'+key+'-'+rowIdx);
-    if(tr){const nin=tr.querySelector('.nin');if(nin){nin.focus();nin.select();return true;}}
-    return false;
+    setTimeout(()=>{
+      const tr=document.getElementById('row-'+key+'-'+rowIdx);
+      if(tr){const nin=tr.querySelector('.nin');if(nin){nin.focus();nin.select();}}
+    },30);
   }
-  // Helper: focus a note cell in a given row+col
+  // Helper: focus a note cell in a given row+col (after DOM refresh)
   function focusNote(rowIdx,colIdx){
-    const tr=document.getElementById('row-'+key+'-'+rowIdx);
-    if(tr){const cells=tr.querySelectorAll('.ni-cell');if(cells[colIdx]){const cur=document.querySelector('.ni-cell.editing');if(cur)cur.classList.remove('editing');focusNi(cells[colIdx]);return true;}}
-    return false;
+    setTimeout(()=>{
+      const tr=document.getElementById('row-'+key+'-'+rowIdx);
+      if(tr){const cells=tr.querySelectorAll('.ni-cell');if(cells[colIdx])focusNi(cells[colIdx]);}
+    },30);
   }
   if(type==='name'){
     if(e.key==='Enter'){
@@ -1280,6 +1331,11 @@ function niEnter(e,key,ri,type,col){
 function niEnterMat(e,ri,lapso){
   if(e.key!=='Enter'&&e.key!=='Tab')return;
   e.preventDefault();
+  // Save current value immediately
+  if(lapso!=='name'){
+    const curVal=e.target.value.trim();
+    setMatN(ri,lapso,curVal);
+  }
   const rows=secciones[secActiva].rows;
   const totalRows=rows.length;
   const lapsoOrder=['l1','l2','l3'];
@@ -1301,6 +1357,38 @@ function niEnterMat(e,ri,lapso){
       else fName(0);
     }
   }
+}
+
+// ===== IMPORTAR LISTA .TXT =====
+let txtNames=[];
+function previewTxt(input){
+  const file=input.files[0];if(!file)return;
+  const reader=new FileReader();
+  reader.onload=e=>{
+    const lines=e.target.result.split('\n').map(l=>l.trim()).filter(l=>l.length>0);
+    txtNames=lines;
+    const prev=document.getElementById('txt-preview');
+    prev.innerHTML='<b>'+lines.length+' estudiantes encontrados:</b><br>'+
+      lines.slice(0,10).map((l,i)=>`${i+1}. ${l}`).join('<br>')+(lines.length>10?'<br>…y '+(lines.length-10)+' más':'');
+  };
+  reader.readAsText(file,'UTF-8');
+}
+function applyTxt(){
+  if(!txtNames.length){showToast('Sin datos. Selecciona un archivo .txt primero.');return;}
+  const dest=document.getElementById('txt-dest').value;
+  const nm=mats.length;
+  if(dest==='lapsos'){
+    if(!confirm('¿Reemplazar la lista de estudiantes en todos los lapsos con los '+txtNames.length+' nombres del archivo?'))return;
+    const newRows=txtNames.map(n=>({nom:n,ns:new Array(nm).fill(null)}));
+    ['t1','t2','t3','tf'].forEach(k=>{data[k]=newRows.map(r=>({nom:r.nom,ns:[...r.ns];}));});
+    refreshAll();
+  } else {
+    if(!confirm('¿Reemplazar la lista en la sección activa de Mi Materia con los '+txtNames.length+' nombres?'))return;
+    secciones[secActiva].rows=txtNames.map(n=>({nom:n,l1:null,l2:null,l3:null}));
+    if(activeTab==='tmat')refreshPanel('tmat');
+  }
+  document.getElementById('txt-ov').classList.remove('open');
+  showToast('✓ '+txtNames.length+' estudiantes importados');
 }
 
 // ===== LIMPIAR PERÍODO =====
