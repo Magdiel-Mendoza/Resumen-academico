@@ -297,15 +297,8 @@ td.tl{text-align:left}
 .toast.show{opacity:1}
 
 /* ===== PRINT ===== */
-@media print{
-  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
-  body,html{background:#fff!important;color:#000!important;font-size:9px!important}
-  .app,.no-print{display:none!important}
-  #parea{display:block!important}
-  .bp{page-break-after:always}
-  .bp:last-child{page-break-after:avoid}
-}
-#parea{display:none}
+/* duplicate @media print removed */
+#parea{display:none!important}
 
 /* Print doc base */
 .pdoc{font-family:'Segoe UI',Arial,sans-serif;color:#000;background:#fff;font-size:9px;width:100%}
@@ -365,7 +358,7 @@ td.tl{text-align:left}
     <div><div class="hi" id="d-inst">Liceo Dr. J. M. Siso Martínez</div><div class="hs" id="d-lugar">Barquisimeto, Estado Lara</div></div>
     <div class="hdr-r">
       <div class="hbadge" id="d-badge">1ero A · 2025-2026</div>
-      <div class="hbadge" style="background:rgba(255,255,255,.1);font-size:10px;opacity:.8">v9.1</div>
+      <div class="hbadge" style="background:rgba(255,255,255,.1);font-size:10px;opacity:.8">v9.2</div>
       <div style="display:flex;gap:3px;align-items:center">
         <button class="tbtn" onclick="setFS('sm')" title="Fuente pequeña" style="padding:3px 7px">A-</button>
         <button class="tbtn" onclick="setFS('lg')" title="Fuente grande" style="padding:3px 7px">A+</button>
@@ -467,16 +460,112 @@ td.tl{text-align:left}
 // ===== DATA =====
 const MDEF=['Castellano','Matemática','Historia de Venezuela','Inglés','Educación Física','Física','Química','Ciencias Biológicas','Dibujo Técnico','Filosofía','Pre-Militar'];
 let mats=[...MDEF];
-const NAMES=['Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre','Apellido, Nombre'];
+const NAMES=['González, Miguel','Rodríguez, Valentina','Pérez, Paola','Martínez, Santiago','García, Adriana','López, Carmen','Ramírez, Miguel','Hernández, Xiomara','Torres, Sofía','Flores, Óscar','Díaz, Gabriela','Morales, Valentina','Jiménez, Carlos','Vargas, Isabella','Castro, Adriana','Rojas, Yohan','Mendoza, Valentina','Suárez, Xiomara','Ortiz, Diego','Medina, Xiomara','Ramos, Carolina','Blanco, Santiago','Álvarez, Alejandra','Gutiérrez, Paola','Reyes, José','Sánchez, Luisa','Salazar, Carolina','Peña, Pedro','Cruz, Paola','Vega, Carmen','González, Diego','Rodríguez, Andrea'];
 // T1 rows
 
 
 
 
+const T1=[[5,2,11,2,'NC',4,16,'NC',10,7,6],
+[null,15,17,16,'NC',15,10,11,16,15,20],
+[20,'NC',13,20,15,13,16,19,20,20,13],
+[19,15,18,11,7,19,18,2,14,14,14],
+[18,14,13,18,10,11,14,19,8,18,8],
+[9,13,13,20,'NC',11,1,13,'i',2,11],
+[17,8,16,7,10,11,'NC',11,8,null,11],
+[18,'NC',10,13,13,12,14,'NC',18,13,19],
+[6,'NC',18,11,2,11,19,16,15,15,20],
+[11,'i',11,'NC',15,15,18,20,18,12,18],
+[13,20,14,11,'NC',6,14,16,3,19,10],
+[10,13,18,19,13,12,6,20,14,16,13],
+[15,13,16,14,20,10,null,5,'i',15,11],
+[14,'i',18,20,20,20,14,15,12,16,19],
+[10,19,17,17,12,20,13,'NC',1,'i',11],
+[19,17,1,11,'NC',18,11,20,15,19,16],
+[12,14,14,20,14,18,'NC',12,7,10,19],
+[7,14,16,19,14,6,12,19,19,7,null],
+[7,15,16,1,6,1,13,13,null,13,15],
+[11,5,null,'i',16,11,13,null,19,19,16],
+[6,'i',16,17,'NC',20,18,19,11,17,15],
+['i',4,14,14,13,'NC',13,'NC',10,'NC',14],
+[18,18,14,13,12,14,18,13,14,'i',10],
+[12,11,17,10,11,11,12,null,13,null,19],
+[17,19,19,'NC',4,11,2,19,5,17,'NC'],
+[20,13,20,null,'NC',null,'NC',19,17,14,11],
+[15,4,19,5,12,14,20,17,20,null,17],
+[18,'i','NC',7,10,16,'NC',17,13,5,11],
+['i',12,7,'NC',17,12,18,'NC',17,16,12],
+[16,14,14,20,9,18,13,16,10,16,20],
+[10,null,11,18,'NC','i',null,11,15,11,18],
+[17,2,14,16,11,10,'i',15,16,12,16]];
+const T2=[[17,15,11,13,'NC',4,18,'NC',20,3,17],
+[15,14,10,18,15,5,null,'i',14,10,13],
+[12,null,15,3,'NC','i',20,20,17,10,10],
+[null,2,18,15,17,10,13,20,20,'NC',14],
+[10,16,11,5,'i',16,20,20,18,null,18],
+[12,'NC',16,9,'NC',17,10,16,17,18,9],
+[5,7,14,null,11,20,17,19,16,9,null],
+[10,16,20,15,2,3,11,'NC',14,20,11],
+[14,null,9,12,'NC',17,'NC',19,11,10,16],
+[10,null,12,18,18,'i',2,15,18,15,'i'],
+[17,10,16,'NC','NC',16,12,8,'NC',13,12],
+['NC',16,16,11,null,null,null,20,16,14,17],
+[19,8,'NC',19,18,18,1,10,17,20,'NC'],
+[18,10,5,11,16,14,10,16,null,18,20],
+[5,null,14,1,17,12,17,'NC',4,'i',7],
+[17,20,18,6,'NC',10,14,13,11,null,14],
+[12,12,8,14,13,17,'NC',13,19,'i',4],
+[9,14,19,8,18,6,18,19,'i',12,17],
+[14,20,20,4,10,14,13,20,6,10,null],
+[18,10,12,15,13,16,7,19,20,10,17],
+[4,13,13,10,'NC',18,'NC',20,null,16,16],
+[20,10,15,20,12,'i',19,'NC',12,19,'NC'],
+[1,6,null,13,9,17,12,14,13,20,'i'],
+[2,14,'i',12,8,10,18,20,10,null,19],
+[19,10,18,16,18,19,16,15,11,12,7],
+[18,11,16,11,'NC',10,19,13,3,14,11],
+[20,19,14,18,'NC',13,12,'i',13,20,17],
+[11,13,14,9,17,16,14,7,'NC',2,2],
+[14,18,16,17,4,17,10,'NC',13,14,10],
+[11,19,1,10,13,18,10,14,3,'i',3],
+[10,12,null,15,'NC',16,9,null,14,19,13],
+[null,20,18,9,14,9,'NC',5,16,14,'i']];
+const T3=[[19,12,'i',19,'NC',6,10,'NC',15,18,3],
+[15,13,13,null,2,6,13,12,14,10,19],
+[19,12,20,'i',18,20,10,16,12,16,15],
+[15,12,10,'i',18,6,'i',5,null,null,7],
+[11,17,13,15,10,13,'NC',12,16,18,12],
+['i',12,null,20,'NC','i',19,20,13,'NC',3],
+['i',1,'i',10,17,7,'NC',13,2,20,18],
+[8,18,11,7,13,12,null,'NC',13,12,2],
+[14,5,20,20,16,12,'i',5,12,null,12],
+[11,17,14,13,3,9,16,5,18,8,18],
+[19,13,7,19,'NC',19,18,16,17,11,16],
+[4,null,15,16,1,16,16,9,'NC',null,13],
+[3,15,18,10,3,8,'NC',7,14,10,20],
+[12,16,14,'NC',3,'i',10,15,14,17,19],
+[13,'NC',7,8,2,5,'i','NC',7,10,11],
+[null,17,15,12,'NC',13,6,15,18,19,'NC'],
+[19,4,5,20,11,13,19,14,16,11,3],
+['NC',12,13,2,10,12,20,13,11,18,17],
+[11,'i','NC',8,20,17,19,11,13,'i',17],
+[16,14,20,'NC',4,18,'i',10,13,10,null],
+[14,18,'NC',14,'NC',5,14,15,5,20,17],
+[12,11,1,11,14,'NC',20,'NC',12,11,6],
+['NC',4,16,13,19,15,'NC',11,13,17,'NC'],
+[11,10,null,15,'i',16,12,'NC',19,17,15],
+[18,14,15,11,16,20,18,'i',10,13,10],
+[17,20,17,11,'NC','i',8,11,12,11,11],
+['i',15,17,19,'NC',10,2,1,11,18,11],
+[null,14,20,15,14,11,8,null,'NC',20,15],
+[11,11,17,6,'NC',null,16,'NC',13,7,10],
+[14,5,5,14,10,9,5,18,'i',14,2],
+[null,15,12,19,'NC',18,16,3,13,18,10],
+[5,2,8,11,16,19,5,'i',10,16,17]];
 let data={
-  t1:NAMES.map(n=>({nom:n,ns:new Array(MDEF.length).fill(null)})),
-  t2:NAMES.map(n=>({nom:n,ns:new Array(MDEF.length).fill(null)})),
-  t3:NAMES.map(n=>({nom:n,ns:new Array(MDEF.length).fill(null)})),
+  t1:NAMES.map((n,i)=>({nom:n,ns:[...T1[i]]})),
+  t2:NAMES.map((n,i)=>({nom:n,ns:[...T2[i]]})),
+  t3:NAMES.map((n,i)=>({nom:n,ns:[...T3[i]]})),
   tf:NAMES.map(n=>({nom:n,ns:new Array(MDEF.length).fill(null)}))
 };
 let activeTab='t1', dark=false, sortOrder='original';
@@ -843,7 +932,7 @@ function renameMat(i,v){mats[i]=v;}
 // ===== MI MATERIA — múltiples secciones =====
 let secciones=[
   {id:1, mat:'Matemática', sec:'1ero A', period:'2025-2026',
-   rows:NAMES.map(n=>({nom:n,l1:null,l2:null,l3:null}))}
+   rows:NAMES.slice(0,32).map(n=>({nom:n,l1:null,l2:null,l3:null}))}
 ];
 let secActiva=0; // índice de sección activa en Mi Materia
 
@@ -1245,24 +1334,81 @@ function printBoletin(idx){doPrint(buildBol(idx));}
 function printBoletinTodos(){let all='';data.t1.forEach((_,i)=>all+=buildBol(i));doPrint(all);}
 
 function doPrint(html){
-  const pa=document.getElementById('parea');
-  const app=document.getElementById('main-app');
-  pa.innerHTML=html;
-  pa.style.display='block';
-  app.style.display='none';
-  // Wait two animation frames so browser fully renders before print dialog
-  requestAnimationFrame(()=>{
-    requestAnimationFrame(()=>{
-      setTimeout(()=>{
-        window.print();
-        setTimeout(()=>{
-          pa.style.display='none';
-          app.style.display='block';
-          pa.innerHTML='';
-        },300);
-      },120);
-    });
-  });
+  // Use a hidden iframe for printing — avoids all DOM swap timing issues
+  // and works correctly on mobile Chrome, Firefox and desktop browsers
+  const old=document.getElementById('print-iframe');
+  if(old)old.remove();
+  const iframe=document.createElement('iframe');
+  iframe.id='print-iframe';
+  iframe.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;border:none;z-index:-1;opacity:0;pointer-events:none';
+  document.body.appendChild(iframe);
+  const doc=iframe.contentDocument||iframe.contentWindow.document;
+  // Build complete HTML for the iframe including all print CSS
+  const printCSS=Array.from(document.styleSheets).map(ss=>{
+    try{return Array.from(ss.cssRules).map(r=>r.cssText).join('\n');}catch(e){return '';}
+  }).join('\n');
+  doc.open();
+  doc.write(`<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<style>
+body{font-family:'Segoe UI',Arial,sans-serif;color:#000;background:#fff;margin:0;padding:0;font-size:10px}
+-webkit-print-color-adjust:exact;
+*{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;box-sizing:border-box}
+.bp{page-break-after:always}.bp:last-child{page-break-after:avoid}
+.ven-hdr{text-align:center;padding:8px 10px 7px;border-bottom:2px solid #000;border-top:2px solid #000;margin-bottom:0;background:#f0f0f0}
+.ven-rep{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:#000}
+.ven-min,.ven-inst,.ven-loc,.ven-doc-title{font-size:10px;font-weight:700;color:#000;margin-top:2px}
+.ven-inst{text-transform:uppercase}
+.ven-doc-title{border-top:1px solid #ccc;padding-top:4px;margin-top:4px;text-transform:uppercase}
+.sec-meta{display:flex;gap:12px;flex-wrap:wrap;padding:5px 10px;background:#f2f2f2;border-bottom:1px solid #999;font-size:8px;color:#000}
+.sec-meta b{font-weight:700}
+.sec-tbl{width:100%;border-collapse:collapse}
+.sec-tbl th{background:#ddd;color:#000;padding:4px 3px;font-size:7.5px;font-weight:700;text-align:center;word-break:break-word;max-width:60px;border:0.5px solid #bbb}
+.sec-tbl th.tl{text-align:left}
+.sec-tbl td{padding:2px 3px;border-bottom:.5px solid #ccc;text-align:center;color:#000;font-size:8.5px;border:0.5px solid #e0e0e0}
+.sec-tbl td.tl{text-align:left;font-size:8.5px;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sec-tbl tbody tr:nth-child(even):not(.ar):not(.ag2){background:#f5f5f5}
+.sec-tbl .ar td{background:#e0e0e0!important;color:#000!important;font-weight:700;border-top:1.5px solid #999}
+.sec-tbl .ag2 td{background:#c8c8c8!important;color:#000!important;font-weight:700}
+.sec-foot{padding:4px 10px;font-size:7.5px;color:#333;background:#f2f2f2;border-top:1px solid #999;display:flex;gap:12px;flex-wrap:wrap}
+.sec-fir{display:flex;justify-content:space-around;margin-top:22px;padding:0 14px;font-size:9px;color:#333}
+.sec-fir div{text-align:center;border-top:1px solid #888;padding-top:4px;width:140px}
+.bol-nom{background:#ddd;color:#000;padding:5px 12px;font-size:11px;font-weight:700;display:flex;justify-content:space-between}
+.bol-meta{display:grid;grid-template-columns:1fr 1fr 1fr;padding:5px 12px;gap:3px;background:#f5f5f5;border:1px solid #ccc;border-top:none}
+.bol-ml{font-size:7.5px;text-transform:uppercase;color:#555}.bol-mv{font-size:9px;font-weight:700;color:#000}
+.bol-tbl{width:100%;border-collapse:collapse;font-size:9px}
+.bol-tbl th{background:#ddd;color:#000;padding:5px 8px;font-size:8.5px;font-weight:700;text-align:left}
+.bol-tbl th.r{text-align:center}
+.bol-tbl td{padding:3px 8px;border-bottom:.5px solid #ccc;color:#000}
+.bol-tbl td.r{text-align:center}
+.bol-tbl tbody tr:nth-child(even){background:#f5f5f5}
+.bok{color:#000;font-weight:700}.bbd{color:#000;font-weight:700;text-decoration:underline}.bnc{color:#555;font-style:italic}.biv{color:#000;font-weight:700;font-style:italic}
+.bol-foot{display:flex;justify-content:space-between;align-items:flex-end;padding:7px 12px;background:#f5f5f5;border:1px solid #ccc;border-top:none}
+.bol-res{display:flex;gap:14px}
+.brv{font-size:17px;font-weight:700;color:#000}.brl{font-size:7.5px;text-transform:uppercase;color:#555}
+.bfase{border:1.5px solid #555;border-radius:5px;padding:3px 10px;text-align:center}
+.bfl{font-size:7.5px;text-transform:uppercase;color:#555}.bfv{font-size:11px;font-weight:700;color:#000}
+.bol-fir{display:flex;justify-content:space-around;margin-top:20px;padding:0 14px;font-size:8.5px;color:#333}
+.bol-fir div{text-align:center;border-top:1px solid #aaa;padding-top:3px;width:140px}
+.bol-pie{font-size:8px;color:#333;background:#f0f0f0;border-left:2px solid #888;padding:3px 8px;margin-top:5px}
+.pdoc{font-family:'Segoe UI',Arial,sans-serif;color:#000;background:#fff;font-size:9px;width:100%}
+</style></head><body>${html}</body></html>`);
+  doc.close();
+  // Wait for iframe to load then print
+  iframe.onload=()=>{
+    setTimeout(()=>{
+      iframe.contentWindow.focus();
+      iframe.contentWindow.print();
+      setTimeout(()=>iframe.remove(),1000);
+    },200);
+  };
+  // Fallback if onload doesn't fire (some browsers)
+  setTimeout(()=>{
+    if(document.getElementById('print-iframe')){
+      iframe.contentWindow.focus();
+      iframe.contentWindow.print();
+      setTimeout(()=>iframe.remove(),1000);
+    }
+  },800);
 }
 
 // ===== PWA SERVICE WORKER =====
